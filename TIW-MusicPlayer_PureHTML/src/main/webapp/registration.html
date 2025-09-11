@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Registration</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" media="all" href="css/mystyle.css">		
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+</head>
+		
+<body>
+	<p class="title">MUSIC PLAYLIST</p>
+	
+ 	<div class="form-signin">
+ 		<form action="CheckRegistration" method="POST">
+			<label class="form_label">UserName</label>
+			<input type="text" name="username" class="form_input" placeholder="Insert Username (max: 50 characters)" required><br>
+		
+			<label class="form_label">Password</label>
+			<input type="password" name="password" class="form_input" placeholder="Insert password (max: 50 characters)" required><br>
+			<input type="password" name="passwordCheck"  class="form_input" placeholder="Repeat password" required><br>
+		
+			<label class="form_label">Name</label>
+			<input type="text" name="name" class="form_input" placeholder="Your name" required><br>
+
+			<label class="form_label">Surname</label>
+			<input type="text" name="surname" class="form_input" placeholder="Your surname" required><br>
+						
+			<button type="submit" class="red_button">REGISTER</button>
+		</form>	
+			
+		<br>
+		<a href="index.html">
+			<button class="green_button">
+				<i class="fa fa-sign-in" aria-hidden="true">LOGIN</i>
+			</button>
+		</a>
+	</div>
+</body>	
+</html>

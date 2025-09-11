@@ -1,0 +1,453 @@
+
+body {
+    background: #DCDCDC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: green;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    padding: 0;
+}
+
+.form-signin {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 350px;
+    text-align: center;
+}
+
+.form_label{
+	color: red;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.form_input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border: 1px solid gray;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.red_button{
+	background: red;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+    font-size: 16px;
+    margin: 15px 5px;
+    cursor: pointer;
+    border-radius: 25px;
+	width: 100%;
+	font-weight: bold;
+}
+
+.green_button{
+	background: green;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+    font-size: 16px;
+    margin: 15px 5px;
+    cursor: pointer;
+    border-radius: 25px;
+	width: 100%;
+	font-weight: bold;
+}
+
+.red_button_logout{
+	background: red;
+	border: none;
+	color: white;
+	padding: 12px 24px;
+	text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
+	font-weight: bold;
+    right: 45px;
+    position: absolute;
+    margin-bottom: 2rem;
+    margin: 0;
+    transform: translateY(-50%);
+
+}
+
+.red_button_homepage{
+	background: red;
+	border: none;
+	color: white;
+	padding: 12px 24px;
+	text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
+	font-weight: bold;
+    left: 45px;
+    position: absolute;
+    margin-bottom: 2rem;
+    margin: 0;
+    transform: translateY(-50%);
+
+}
+
+
+.title_pages{
+    font-size: 2.5rem;
+    color: green;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin: 0; 
+    padding: 0 60px;
+
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding: 20px 0px;
+}
+
+
+.listPlaylist {
+    width: 90%;
+    margin: 2rem auto;
+}
+
+.playlist-table {
+    width: 100%;
+    border-collapse: collapse; 
+    border: 2px solid #000; 
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 8px;
+}
+
+.playlist-table th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 2px solid #000;
+    font-size: 18px;
+}
+.playlist-table tr {
+    border-bottom: 2px solid black;
+}
+.playlist-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.playlist-link {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.playlist-link:hover {
+    color: red; 
+    text-decoration: underline;
+}
+
+
+.form_style {
+    width: 70% ;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.form-title {
+    color: red;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #34495e;
+}
+
+.form-control {
+    width: 96%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+   }
+
+.form-control:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.custom-file input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-info {
+    display: block;
+    padding: 12px;
+    border: 1px dashed #ccc;
+    border-radius: 6px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.custom-file:hover .file-info {
+    border-color: #3498db;
+    background-color: #f0f8ff;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}	
+
+.delete-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}	
+
+
+
+.playlist-header {
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    margin: 40px 0px 30px 0px;
+    font-size: 28px;
+    font-weight: bold;
+    color:red;
+}
+.playlist {
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    margin: 40px 0px 30px 0px;
+    font-size: 28px;
+    font-weight: bold;
+    color:red;
+}
+
+h2.playlist-header {
+    color: red;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.songs-container {
+	width: 100%;
+	overflow-x: auto;
+	padding: 20px 0;
+}
+
+.song-page-title{
+	color: red;
+    font-size: 28px;
+    font-weight: bold;
+    text-align:center;
+}
+.songs-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 15px;
+}
+
+.song-cell {
+    width: 20%; /* 5 columns (20%)*/
+    vertical-align: top;
+}
+
+.song-card {
+    width: 160px;
+	background: #f8f8f8;
+	border-radius: 8px;
+	overflow: hidden;
+	transition: all 0.3s ease;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.song-card:hover {
+    transform: translateY(-5px);
+}
+
+.album-cover {
+    position: relative;
+	width: 100%;
+	height: 160px;
+	overflow: hidden;
+}
+
+.album-image {
+     width: 100%;
+	 height: 100%;
+	 object-fit: cover;
+     transition: transform 0.3s ease;
+     }
+
+.song-info {
+    padding: 12px;
+    text-align: center;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px auto;
+    max-width: 600px;
+    padding: 0 20px;
+    gap: 150px;
+}
+
+.nav-button {
+    display: flex;
+    align-items: space-between;
+    padding: 20px 20px;
+    border-radius: 30px;
+    margin: 30px auto;
+    text-decoration: none;
+    background-color: #3498db;
+    color: white;
+    border: 2px solid #3498db;
+    border:20px;
+}
+
+.icon-spacer {
+    margin-right: 8px; 
+    margin-left: 8px;  
+}
+
+.song-page-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.song-page-title {
+    color: #2e7d32; 
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.song-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.song-info-card {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.song-title {
+    color: red;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align:center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.song-meta {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 15px;
+}
+
+.meta-row {
+	text-align:center;
+    display: contents;
+}
+
+.meta-label {
+    font-weight: bold;
+    color: #555;
+    text-align: right;
+}
+
+.meta-value {
+    color: #333;
+}
+
+.player-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.album-cover-player {
+	 max-width: 100%;
+    max-height: 300px; 
+    width: auto;
+    height: auto;
+  	object-fit: contain; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background: #f5f5f5; 
+}
+
+.audio-player {
+    width: 100%;
+    max-width: 300px;
+}
+
+audio {
+    width: 100%;
+}
+
+
+

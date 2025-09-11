@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>HomePage</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../css/mystyle.css" media="all" th:href="@{/css/mystyle.css}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+</head>
+		
+<body>
+	<header> 
+		<h1 class= "title_pages">MUSIC PLAYLIST</h1>
+		<form th:action="@{Logout}" method="POST">
+			<button class="red_button_logout">
+				<i class="fa fa-sign-out" aria-hidden="true">LOGOUT</i>
+			</button>
+		</form>
+	</header>	
+	
+	<div class= "playlist_list">
+		<table class="playlist-table">
+			<thead>
+				<tr>
+					<th>PLAYLIST NAME</th>
+					<th>CREATION DATE</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="playlist : ${playlists}">
+					<td><a th:href="@{GetPlaylist(playlistId=${playlist.ID})}" class="playlist-link" th:text="${playlist.Title}"></a>
+					</td>
+					<td><p th:text="${playlist.CreationDate}"></p><!--  --> 
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<form th:action="@{/AddSong}" method="POST" enctype="multipart/form-data" class="form_style">
+		<h2 class="form-title"> Add a new song in your DataBase</h2><br>
+		<div class="form-group">
+			<label for="title">Title</label>
+			<input type="text" id="title" name="songTitle" class="form-control" required>
+		</div>
+		
+		<div class="form-group">
+			<label for="genre">Genre</label>
+			<select id="genre" name="genre" class="form-control" required>
+				<option value="" disabled selected>Select a genre</option>
+				<option value="Hip Hop">Hip Hop</option>
+				<option value="Rap">Rap</option>
+				<option value="Rock">Rock</option>
+				<option value="Country">Country</option>
+				<option value="Electronic">Electronic</option>
+				<option value="latin">Latin</option>
+				<option value="Pop">Pop</option>
+				<option value="Jazz">Jazz</option>
+				<option value="Punk">Punk</option>
+				<option value="Classical">Classical</option>
+				<option value="Metal">Metal</option>
+			</select>
+		</div>
+		<div class="form-group">
+   			<label for="albumTitle">Choose an Existing Album</label>	
+			<select class="form-control" name="album"  >
+			        <option value=""> Select an existing album or fill below to create a new </option>
+					<option th:each="album : ${allAlbums}"  th:value="${album.ID}" th:text="${album.title + '     BY     ' + album.singer}">
+					</option> 
+			</select> <br>
+		</div>
+		
+		<div class="form-group">
+			<label for="albumTitle"> New Album Title</label>
+			<input type="text" id="albumTitle" name="newAlbumTitle" class="form-control" >
+		</div>
+		
+		<div class="form-group">
+			<label for="singer">Singer/Artist of the album</label>
+			<input type="text" id="singer" name="newSinger" class="form-control" >
+		</div>
+		
+		<div class="form-group">
+			<label for="date">Album Publication Year</label>
+			<input type="number" id="date" name="newPublicationYear" class="form-control" min="0" max="2025">
+		</div>
+		
+		<div class="form-group">
+			<label for="albumImage">Album Cover </label>
+			<input type="file" name="newAlbumImage" accept="image/png, image/jpeg, image/jpg">
+		</div>
+		
+		<div class="form-group">
+			<label for="albumImage">Audio File </label>
+			<input type="file" name="audioFile" accept="audio/mp3" required> 			
+		</div>
+								
+		<button type="submit" class="submit-btn">ADD SONG</button>
+	</form>
+
+	<form th:action="@{/CreatePlaylist}" method="POST" class="form_style">
+		<h2 class="form-title">Create New PlayList</h2>
+		<div class="form-group">
+			<label for="playlistName">PlayList Title:</label>
+				<input type="text" name="playlistname" class="form-control" required>			
+			</div>
+		<div class="form-group">
+			<label for="songsIds">Selects Songs:</label>
+			<select class="form-control"  name="songIds" required multiple>
+				<option th:each="song : ${allSongs}" th:value="${song.ID}" th:text="'TITLE   ' + ${song.songTitle}"></option>
+			</select>
+			<p>⌘/Ctrl + Click to select more songs</p>
+		</div>
+		<button type="submit" class="submit-btn">CREATE PLAYLIST</button>
+	</form>
+	<br><br><br>
+		
+	<form th:action="@{DeleteAccount}" method="post">
+	  <button type="submit" class="delete-btn">DELETE ACCOUNT</button>
+	</form><br>	
+</body>
+</html>

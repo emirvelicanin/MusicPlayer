@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Playlist Page</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../css/mystyle.css" media="all" th:href="@{/css/mystyle.css}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+</head>
+		
+<body>
+	<header> 
+		<form th:action="@{GoToHomePage}" method="get">
+			<button class="red_button_homepage">
+				<i class="fa fa-home" aria-hidden="true"> HOMEPAGE</i>
+			</button>
+		</form >
+		
+		<h1 class= "title_pages">MUSIC PLAYLIST</h1>
+		
+		<form th:action="@{Logout}" method="post">
+			<button class="red_button_logout">
+				<i class="fa fa-sign-out" aria-hidden="true">LOGOUT</i>
+			</button>
+		</form>
+	</header>	
+	
+	<h2 class="song-title">PLAYLIST NAME:  <span  th:text="${Title}"></span></h2>
+
+	<div class="music-container">
+   		<table class="songs-table">
+      		<tr>
+           		<th th:each="song : ${songsInPlaylist}" class="song-card">
+               		<div class="album-cover">
+                  		<img th:src="@{'data:image/png;base64,' + ${song.albumImage}}" alt="Album Image" class="album-image">
+               		</div>
+               		<div class="song-info">
+                   		<a th:href="@{/GetSong(songId=${song.id}, playlistId=${playlistId})}" class="song-link" th:text="${song.songTitle}"></a>
+               		</div>
+           		</th>
+       		</tr>
+   		</table>
+   		
+
+   		<div class="pagination-controls">        
+       		<a th:if="${not firstPage}" th:href="@{/GetPlaylist(playlistId=${playlistId}, page=${page-1})}" class="nav-button prev-button">
+           		<i class="fa fa-chevron-left icon-spacer"></i> PREVIOUS
+       		</a>
+       
+       		<a th:if="${not lastPage}" th:href="@{/GetPlaylist(playlistId=${playlistId}, page=${page+1})}"  class="nav-button next-button">
+				NEXT<i class="fa fa-chevron-right icon-spacer"></i>
+       		</a>
+  		 </div>
+	</div>
+	
+	<h2 th:if="${noSongs}">Empty playlist</h2>
+
+	<form th:action="@{/AddSongsToPlaylist}" method="POST" class="form_style">
+		<h2 class="form-title">ADD SONGS TO THIS PLAYLIST</h2>
+		<input type="hidden" name="playlistId" th:value="${playlistId}">
+		<div class="form-group">
+			<label for="songsIds">Selects Songs:</label>
+			<select class="form-control" name="songIds" required multiple>
+				<option th:each="song : ${songsNotInPlaylist}" th:value="${song.ID}" th:text="'TITLE ' + ${song.songTitle}"></option>
+			</select><p>⌘/Ctrl + Click to select more songs</p>
+		</div> 
+		
+		<button type="submit" class="submit-btn">ADD SONGS</button>
+	</form><br><br>
+	
+	<form th:action="@{DeletePlaylist}" method="post">
+		<input type="hidden" name="playlistId" th:value="${playlistId}">
+		<button type="submit" class="delete-btn">DELETE PLAYLIST</button>
+	</form>
+</body>
+</html>
