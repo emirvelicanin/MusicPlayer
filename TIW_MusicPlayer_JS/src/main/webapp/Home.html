@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HomePage</title>
+	<link rel="stylesheet" type="text/css" media="all" href="./resources/mystyle.css" />
+	<script src="./resources/utils.js" charset="utf-8" defer></script>
+	<script src="./resources/home.js" charset="utf-8" defer></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+</head>
+<body>
+	<header> 
+		<h1 class= "title_pages">MUSIC PLAYLIST</h1>
+		<button type="button" id="logout_button" class="red_button_logout">
+			<i class="fa fa-sign-out" aria-hidden="true">LOGOUT</i>
+		</button>
+	</header>	
+
+	<div id = "playlist_list" class="playlist_list"></div>
+	
+	<form id="upload_song_form" class="form_style" enctype="multipart/form-data" >
+		<h2 class="form_title"> Add a new song in your DataBase</h2><br>
+		
+		<div class="form_group">
+			<label for="song_title">Title</label>
+			<input type="text" id="song_title" name="song_title" class="form_control" required>
+		</div>
+			
+		<div class="form_group">
+			<label for="genre">Genre</label>
+			<select id="genre" name="genre" class="form_control" required>
+				<option value="" disabled selected>Select a genre</option>
+				<option value="Hip Hop">Hip Hop</option>
+				<option value="Rap">Rap</option>
+				<option value="Rock">Rock</option>
+				<option value="Country">Country</option>
+				<option value="Electronic">Electronic</option>
+				<option value="latin">Latin</option>
+				<option value="Pop">Pop</option>
+				<option value="Jazz">Jazz</option>
+				<option value="Punk">Punk</option>
+				<option value="Classical">Classical</option>
+				<option value="Metal">Metal</option>
+			</select>
+		</div>
+		
+		<div class="form_group">
+   			<label for="album_select">Choose an Existing Album</label>	
+			<select id="album_select"  name="album_select" class="form_control">
+				<option value=""> Select an existing album or fill below to create a new</option>
+			</select> <br>
+		</div>
+		
+		<div class="form_group">
+			<label for="new_album_title"> New Album Title</label>
+			<input type="text" id="new_album_title" name="new_album_title" class="form_control">
+		</div>
+		
+		<div class="form_group">
+			<label for="new_album_singer">Singer/Artist of the album</label>
+			<input type="text" id="new_album_singer" name="new_album_singer" class="form_control" >
+		</div>
+		
+		<div class="form_group">
+			<label for="date">Album Publication Year</label>
+			<input type="number" id="new_album_publication_year" name="new_album_publication_year" class="form_control" min="0" max="2025">
+		</div>
+
+		<div class="form_group">
+			<label for="new_album_image">Album Cover </label>
+			<input type="file" name="new_album_image" accept="image/png, image/jpeg, image/jpg">
+		</div>
+		
+		<div class="form_group">
+			<label for="audio_file">Audio File </label>
+			<input type="file" name="audio_file" accept="audio/mp3" required> 			
+		</div>
+								
+		<button type="submit" class="submit_btn">ADD SONG</button>
+	</form>
+	
+	
+	<form id="create_playlist" class="form_style">
+		<h2 class="form_title">Create New PlayList</h2>
+		<div class="form_group">
+			<label for="playlist_title">PlayList Title:</label>
+			<input type="text" id="playlist_title" name="playlist_title" class="form_control" required>			
+		</div>
+		<div class="form-group">
+			<label for="playlist_songs">Selects Songs:</label>
+			<select id="playlist_songs" name="playlist_songs" class="form_control" required multiple></select>
+			<p>⌘/Ctrl + Click to select more songs</p>
+		</div>
+		<button type="submit" class="submit_btn">CREATE PLAYLIST</button>
+	</form>
+	
+	
+	<hr id="line2">
+	
+	<div id="playlist_page" class="playlist_page">
+		<div class="playlist_header">
+			<h2 id="playlist_page_title" class="playlist_header"></h2>
+			<button type="button" id="close_playlist" class="close_red_button_header">CLOSE PLAYLIST</button>
+		</div>	
+	</div>
+	<div class="music_container">
+    	<table class="songs_table">
+       		<tr id="songs_table"></tr>
+    	</table>
+    	<div class="pagination_controls">        
+    		<button  id="previous_page_button" class="nav_button prev_button">
+    			<i class="fa fa-chevron-left icon-spacer"></i> PREVIOUS
+    		</button>
+    		<button  id="next_page_button" class="nav_button next_button">
+    			NEXT<i class="fa fa-chevron-right icon-spacer"></i>
+    		</button>
+    	</div>
+    </div>
+    	
+    <h2 id="page_number"></h2>
+    	
+    <h2 id="empty_playlist" align="center">The Playlist is empty</h2>
+    	
+	<form id="add_song_to_playlist_form" class="form_style">
+		<h2 class="form_title">ADD SONGS TO THIS PLAYLIST</h2>
+		<input type="hidden" id="playlistID" name="playlistID">
+		<div class="form_group">
+			<label for="songsID">Selects Songs:</label>
+			<select id="add_song_to_playlist_form_select"  name="songsID" class="form_control" required multiple></select>
+			<p>⌘/Ctrl + Click to select more songs</p>
+		</div>						
+		<button type="submit" class="submit_btn">ADD SONGS</button>
+	</form>
+		
+	<form action="#" id="delete_playlist_form">
+		<input type="hidden" id="playlistID" name="playlistID">
+		<button type="submit" id="delete_playlist_button" class="delete_btn">DELETE THIS PLAYLIST</button>
+	</form>
+	
+	<div id="playlist_ordinator">
+		<div class="playlist_header">
+			<h2 id="ordinator_page_title" class="playlist_header"></h2>
+			<button type="button" id="close_ordinator" class="close_red_button_header">CLOSE ORDINATOR </button>
+		</div>	
+		
+		<div class="ordinator_container">
+			<button type="button" id="submit_ordinator"  class="close_red_button_header">SUBMIT REORDER</button>
+	
+			<table id="playlist_ordinator_table"></table>
+		</div>	
+	</div>
+
+		
+	<div id="song_page" class="song_page" style="display: none;">
+		<div class="playlist_header">
+	    	<h1 id="song_title_page" class="playlist_header"></h1>
+			<button id="close_song_page" class="close_red_button_header">GO BACK TO PLAYLIST</button>
+		</div>	
+
+    	<div class="song_detail">
+        	<div class="song_info_card">
+            	<div class="song_meta">
+                	<div class="song_row">
+                    	<span class="song_label">Genre:</span>
+                    	<span id="song_genre" class="song_span" ></span>
+                	</div>
+                	<div class="song_row">
+                    	<span class="song_label">Album:</span>
+                    	<span id="song_album" class="song_span" ></span>
+                	</div>
+                	<div class="song_row">
+                    	<span class="song_label">Singer:</span>
+                    	<span id="song_singer" class="song_span"></span>
+                	</div>
+                	<div class="song_row">
+                    	<span class="song_label">Year:</span>
+                    	<span id="song_publication_year" class="song_span"></span>
+                	</div>
+            	</div>
+        	</div>
+
+        	<div class="player_card">
+            	<img id="album_image" alt="Album Image" class="album_cover_player">
+            	<div class="audio_player">
+                	<audio id="song_audio" controls></audio>
+            	</div>
+        	</div>
+    	</div>
+
+      	<form action="#" id="delete_song">
+            <button type="submit" class="delete_btn">DELETE SONG</button>
+       	</form>
+    </div>	
+	
+	<button type="button" id="delete_account_button" class="delete_account_btn">DELETE ACCOUNT</button>
+</body>
+</html>
