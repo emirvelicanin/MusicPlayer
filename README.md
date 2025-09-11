@@ -35,7 +35,6 @@
  | IDE               | [Eclipse 2022-12](https://www.eclipse.org/)                  |
  | Server            | [Apache Tomcat v9.0](https://tomcat.apache.org/)             |
  | Gestione database | [MySQL Workbench](https://www.mysql.com/products/workbench/) |
- | Browser           | [Firefox 119](https://www.mozilla.org/it/firefox/new/)       |
  | Sistema operativo | macOS                                                        |
  
  ## Copyright e licenza
