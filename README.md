@@ -25,7 +25,7 @@
  ## Struttura del progetto
  
 		TIW-MusicPlayer_PureHTML     # Codice per il progetto in HTML puro
-		TIW_MusicPlayer_JS  # Codice per il progetto RIA
+		TIW_MusicPlayer_JS           # Codice per il progetto RIA
  
  ## Strumenti utilizzati
  
