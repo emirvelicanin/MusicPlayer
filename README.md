@@ -16,7 +16,7 @@
  
  Durante lo sviluppo si è data massima importanza a garantire la sicurezza e l'integrità della base di dati controllando sia lato client sia lato server la correttezza dei dati inviati.
  
- La specifica del progetto (Playlist Musicale) è disponibile è [qui](https://github.com/emirvelicanin/MusicPlayer/blob/main/Documents/specifica.pdf).
+ La specifica del progetto (Player Musicale) è disponibile è [qui](https://github.com/emirvelicanin/MusicPlayer/blob/main/Documents/specifica.pdf).
  
  La documentazione del progetto è disponibile [qui](https://github.com/emirvelicanin/MusicPlayer/blob/main/Documents/documentazione.pdf).
  
